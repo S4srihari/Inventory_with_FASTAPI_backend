@@ -6,7 +6,14 @@ Base = declarative_base()
 class Product(Base):
     __tablename__ = "product"
     id=Column(Integer, primary_key=True, index=True)
-    item=Column(String)
-    description=Column(String)
-    price=Column(Float)
-    quantity=Column(Integer) 
+    item=Column(String, nullable=False)
+    description=Column(String, nullable=False)
+    price=Column(Float, nullable=False)
+    quantity=Column(Integer, nullable=False) 
+
+class User(Base):
+    __tablename__ = "users"
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String, nullable=False)
+    email = Column(String, unique=True, nullable=False)
+    role = Column(String, nullable=False)
