@@ -11,6 +11,7 @@ class Product(Base):
     price=Column(Float, nullable=False)
     quantity=Column(Integer, nullable=False) 
 
+
 class User(Base):
     __tablename__ = "users"
     id = Column(Integer, primary_key=True, index=True)

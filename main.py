@@ -1,7 +1,7 @@
 from fastapi import Depends, FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
-from models import PyProduct, Token, TokenData, UserCreate, UserResponse, PyUser
+from models import PyProduct, Token, TokenData, UserCreate, UserResponse
 from databaseconfig import sessionLocal, engine
 import db_models 
 from db_models import User, Product
@@ -21,6 +21,7 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 app = FastAPI()
 
 db_models.Base.metadata.create_all(bind=engine)
+
 
 
 def get_db():
